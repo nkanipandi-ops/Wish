@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Background Layers -->
+    <div class="background-effects">
+        <div class="sparkles"></div>
+        <div class="bokeh"></div>
+        <div class="fireflies" id="fireflies"></div>
+    </div>
+
+    <!-- Mouse Trail Container -->
+    <div id="mouse-trail-container"></div>
+
+    <!-- Step 1: Intro Screen -->
+    <div id="intro-screen" class="screen">
+        <div class="intro-content">
+            <div class="gift-icon">🎁</div>
+            <h2 class="intro-text">A special surprise is waiting for you...</h2>
+            <button id="open-btn" class="cute-btn">Open Surprise 🎀</button>
+        </div>
+    </div>
+
+    <!-- Step 2: Countdown Screen -->
+    <div id="countdown-screen" class="screen hidden">
+        <div id="countdown-number" class="countdown-text">3</div>
+    </div>
+
+    <!-- Step 3: Main Layout (Revealed after countdown) -->
+    <div id="main-content" class="container hidden">
+
+        <!-- Hanging Decorations -->
+        <div class="hanging-decor">
+            <div class="moon">🌙</div>
+            <div class="fairy-lights">✨ 🌟 ✨ 🌟 ✨</div>
+        </div>
+
+        <!-- Floating full-screen elements -->
+        <div id="floating-elements" class="parallax-layer" data-speed="0.08"></div>
+
+        <!-- ========================================== -->
+        <!-- 🎵 CHANGE MUSIC FILE HERE                  -->
+        <!-- ========================================== -->
+        <div class="top-controls">
+            <button id="music-btn" class="cute-btn small">🎵 Play Birthday Music</button>
+            <audio id="bg-music" loop>
+                <source src="assets/birthday-music.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <!-- Day/Date Badge -->
+        <div class="date-badge">
+            <div class="badge-title">Celebrating <span id="badge-name"></span></div>
+            <div class="badge-date" id="badge-date-text"></div>
+        </div>
+
+        <!-- Center Main Dashboard -->
+        <div class="main-layout flex-layout">
+
+            <!-- Left Side Images -->
+            <div class="side-panel left parallax-layer" data-speed="0.04">
+                <div class="card-stack" id="left-cards"></div>
+            </div>
+
+            <!-- Center Content -->
+            <div class="center-panel">
+                <h1 class="birthday-text">
+                    <span id="type-text"></span>
+                    <span class="highlight-name" id="name-text" style="display:none;"></span>
+                </h1>
+
+                <div class="cake-container parallax-layer" data-speed="0.02">
+                    <div class="glow-ring"></div>
+                    <img src="assets/cake.jpg" alt="Teddy Birthday Cake" class="cake-img">
+
+
+                </div>
+
+                <!-- Glassmorphism Message Box -->
+                <div class="glass-box">
+                    <p class="wishes-text" id="rotating-wish"></p>
+                </div>
+
+                <button id="read-note-btn" class="cute-btn small mt-15">💌 Read a Note</button>
+            </div>
+
+            <!-- Right Side Images -->
+            <div class="side-panel right parallax-layer" data-speed="0.04">
+                <div class="card-stack" id="right-cards"></div>
+            </div>
+
+        </div>
+
+        <!-- Teddy Assistant -->
+        <div class="teddy-assistant" id="teddy-btn" title="Tap me!">
+            <div class="speech-bubble">Tap to celebrate! 🎉</div>
+            <div class="teddy-icon">🧸</div>
+        </div>
+
+        <!-- Corner Elements Removed as Requested -->
+
+        <!-- Classy Footer -->
+        <div class="footer-text">Made with love for <span id="footer-name"></span> ❤</div>
+    </div>
+
+    <!-- Letter Popup Overlay -->
+    <div id="letter-popup" class="popup-overlay hidden">
+        <div class="popup-content glass-box">
+            <button id="close-popup" class="close-btn">&times;</button>
+            <h3 class="letter-title">A Special Note 💌</h3>
+            <p class="letter-body" id="letter-text"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
